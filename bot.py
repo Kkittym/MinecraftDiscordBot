@@ -60,9 +60,9 @@ async def online(ctx, ip):
 @bot.command(name="players")
 async def players(ctx, ip):
     playersArr = query.players(ip)
-    await ctx.send("Players online: " + str(len(playersArr)))
-    await ctx.send("```" + str(playersArr) + "```")
-
+    await ctx.send("Players online: " + str(playersArr["online"]))
+    if "list" in playersArr:
+        await ctx.send("```" + str(playersArr["list"]) + "```")
 
 @bot.event
 async def on_command_error(ctx, error):

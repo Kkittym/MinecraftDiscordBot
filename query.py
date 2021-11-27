@@ -32,10 +32,7 @@ def online(ip):
 
 def players(ip):
     info = requests.get("https://api.mcsrvstat.us/2/" + ip).json()
-    try:
-        return info["players"]["list"]
-    except:
-        return []
+    return info["players"]
 
 # mooncat.apexmc.co
 # CVGSOC.playat.ch
